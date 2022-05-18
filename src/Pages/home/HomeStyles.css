@@ -1,0 +1,25 @@
+.mainContainerHome {
+    background-color: #F5F4F4;
+    align-items: center;
+    font-size: 34px;
+    display: flex;
+    color: #404041;
+    flex-direction: column;
+    width: 100%;
+}
+.logInContainer{
+    display: flex;
+    padding: 20px;
+    background-color: #F5F4F4;
+    margin: 20px;
+}
+
+.containerTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom {
+    margin-top: 45px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,42 @@
+.cardContainer{
+    width: 16rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin:0.5rem;
+}
+.imgContainer {
+    padding: 2vh;
+    margin: 1vh;
+    color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dceccf;
+    width: 80%;
+}
+
+.productImage {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+    object-position: center top;
+}
+
+.infoCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+}
+
+.priceAndId {
+    color: #282c34;
+    background-color: #ffffff;
+    flex-direction: column;
+    display: flex;
+    padding: 5px;
+}
+
+

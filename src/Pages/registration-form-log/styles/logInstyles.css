@@ -1,0 +1,25 @@
+
+.logInMainContainer{
+    background-color: #F5F4F4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: content-box;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    color: #404041;
+    font-weight: lighter;
+    background-color: #F5F4F4;
+    padding-block: 20px;
+    justify-content: space-around;
+    border-top: 1px solid #44331d;
+    border-bottom: 1px solid #44331d;
+    margin-top: 20px;
+    padding: 30px;
+}

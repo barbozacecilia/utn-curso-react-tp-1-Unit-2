@@ -1,0 +1,16 @@
+.mainContainerMenu {
+    width: 960px;
+    border-bottom: 1px solid #44331d;
+}
+.ulMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5d2c1;
+}
+
+.navItem {
+    font-size: 15px;
+    font-family: Droid Sans, serif;
+    font-style: italic;
+    text-decoration-color: #8597a3;
+}

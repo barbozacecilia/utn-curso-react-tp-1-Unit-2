@@ -1,0 +1,16 @@
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 20px;
+}
+
+.titleStyles {
+    color: #585058;
+    justify-content: left;
+    display: flex;
+    align-items: center;
+    padding-inline: 50px;
+    margin: 0 0 1px;
+    text-align: center;
+}

@@ -1,0 +1,15 @@
+.input {
+    border: #70768c solid;
+    margin-bottom: 5px;
+}
+.input:hover {
+    cursor: pointer;
+}
+
+.label {
+    line-height: 20px;
+}
+
+.form {
+    width: 100%;
+}

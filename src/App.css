@@ -1,38 +1,56 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a{
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background-color: #e5d2c1;
+  font-size: 18px;
+  line-height: 1.5;
+  display: flex;
+  -webkit-justify-content: center;
+  font-weight: 600;
+  text-decoration-color: #282c34;
+  font-family: Droid Sans, serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+hr{
+  border: solid #404041;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 70%;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 20px ;
+  letter-spacing: 5px;
+  text-align: center;
+  color: #585058;
+  font-weight: 800;
+}
+h2 {
+  font-size: 20px ;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #585058;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  font-size: 18px ;
+  color: #585058;
 }
+
+p{
+  font-family: Droid Sans, serif;
+  font-size: 18px ;
+}
+
+

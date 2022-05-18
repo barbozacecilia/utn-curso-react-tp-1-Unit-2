@@ -1,0 +1,20 @@
+
+
+.containerNotFound {
+    background-color: #ffffff;
+    align-items: center;
+    display: flex;
+    color: #404041;
+    flex-direction: column;
+    padding-inline: 20px;
+    width: 100%;
+
+}
+
+.containerTitle {
+    display: flex;
+    justify-content: center;
+}
+
+
+
