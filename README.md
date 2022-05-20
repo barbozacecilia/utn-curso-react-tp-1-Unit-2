@@ -64,3 +64,20 @@ Mostrar el detalle de un producto, obteniendo los datos de una api resto o archi
 Nombre
 Precio
 Botón "Comprar"
+
+*********************************
+# Trabajo práctico del Módulo 3 (OBLIGATORIO)
+
+Consigna:
+
+Entregar el código desarrollado hasta el momento para la entrega final
+
+Formato de entrega:
+
+Enviar un archivo .rar o .zip con el siguiente formato: apellido_modulo3.rar
+
+Dentro del .rar o .zip se debe enviar el/los archivos generados por react (excepto node_modules)
+
+
+
+

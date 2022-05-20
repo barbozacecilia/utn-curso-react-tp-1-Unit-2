@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import './styles/logInstyles.css';
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -10,7 +10,7 @@ import {Form} from "react-bootstrap";
 import firebase from "../../Config/firebase";
 import AlertCustom from "../../Components/Alert/AlertCustom";
 import {loginMessage} from "../../Utils/errorMessage";
-
+import AuthContext from "../../Context/AuthContext";
 
 const schema = yup.object().shape({
     email: yup.string().email().required('requerido email'),
@@ -18,6 +18,7 @@ const schema = yup.object().shape({
 });
 
 function LogIn() {
+    const context =useContext(AuthContext)
     const [alert, setAlert] = useState({variant: '', text: ''})
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema),
@@ -35,6 +36,7 @@ function LogIn() {
                 if (userInfo) {
                     const name = userInfo.docs[0]?.data().name
                     setAlert({variant: "success", text: 'Bienvenido ' + (name || "")})
+                    context.loginUser()
                 }
             }
         } catch (e) {
