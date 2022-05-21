@@ -44,9 +44,6 @@ function Home() {
                     )
                     }
                 </div>
-                <div className="bottom">
-
-                </div>
             </div>
         </Loading>
     )

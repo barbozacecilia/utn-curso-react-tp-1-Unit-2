@@ -24,11 +24,6 @@
     grid-auto-rows: minmax(100px,auto);
 }
 
-.bottom {
-    margin-top: 75px;
-    margin-bottom: 20px;
-}
-
 
 /*
 display: grid;
