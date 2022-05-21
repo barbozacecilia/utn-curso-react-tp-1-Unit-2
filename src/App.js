@@ -6,6 +6,7 @@ import PublicRoutes from "./Routes/Public/PublicRoutes";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container} from "react-bootstrap";
 import AuthProvider from "./Context/AuthProvider";
+import Footer from "./Components/Footer/index";
 
 function App() {
     const [login, setLogin] = useState(false)
@@ -17,6 +18,7 @@ function App() {
                     <Container>
                         <PublicRoutes setLogin={setLogin}/>
                     </Container>
+                    <Footer/>
                 </AuthProvider>
             </Router>
         </div>

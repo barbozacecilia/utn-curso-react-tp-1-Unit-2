@@ -45,7 +45,7 @@ function Home() {
                     }
                 </div>
                 <div className="bottom">
-                    <h2>¡Disfrute de su compra!</h2>
+
                 </div>
             </div>
         </Loading>

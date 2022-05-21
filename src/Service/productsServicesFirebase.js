@@ -1,8 +1,8 @@
 import firebase from "../Config/firebase";
 
 /*with firebase*/
-export async function getNewProduct() {
-    const querySnapshot = await firebase.db.collection("products")
+export async function getNewProduct(search) {
+    const querySnapshot = await firebase.db.collection("products").orderBy('name').startAt(search).endAt(search+'\uf8ff')
         .get()
     return querySnapshot.docs
 }
