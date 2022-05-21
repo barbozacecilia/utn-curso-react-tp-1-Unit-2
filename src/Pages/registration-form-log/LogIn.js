@@ -11,6 +11,7 @@ import firebase from "../../Config/firebase";
 import AlertCustom from "../../Components/Alert/AlertCustom";
 import {loginMessage} from "../../Utils/errorMessage";
 import AuthContext from "../../Context/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 const schema = yup.object().shape({
     email: yup.string().email().required('requerido email'),
@@ -18,6 +19,7 @@ const schema = yup.object().shape({
 });
 
 function LogIn() {
+    const navigate = useNavigate()
     const context =useContext(AuthContext)
     const [alert, setAlert] = useState({variant: '', text: ''})
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -36,7 +38,8 @@ function LogIn() {
                 if (userInfo) {
                     const name = userInfo.docs[0]?.data().name
                     setAlert({variant: "success", text: 'Bienvenido ' + (name || "")})
-                    context.loginUser()
+                    context.loginUser(userInfo.docs[0]?.data())
+                    navigate("/")
                 }
             }
         } catch (e) {

@@ -21,6 +21,8 @@ function NewProduct() {
             products()
         },
         [])
+
+
     return (
         <Loading cargando={loading} type={{variant: "success", animation: "grow"}}>
         <div className="mainContainerHome">

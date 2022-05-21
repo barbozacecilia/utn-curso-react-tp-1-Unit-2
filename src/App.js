@@ -8,17 +8,17 @@ import {Container} from "react-bootstrap";
 import AuthProvider from "./Context/AuthProvider";
 
 function App() {
-    const [login, setLogin] =useState(false)
+    const [login, setLogin] = useState(false)
     return (
         <div className="App">
-            <AuthProvider>
             <Router>
-                <Menu login={login}/>
-                <Container>
-                <PublicRoutes setLogin={setLogin}/>
-                </Container>
+                <AuthProvider>
+                    <Menu login={login}/>
+                    <Container>
+                        <PublicRoutes setLogin={setLogin}/>
+                    </Container>
+                </AuthProvider>
             </Router>
-            </AuthProvider>
         </div>
     );
 }

@@ -37,6 +37,7 @@ function Menu() {
                                 }
                             </Nav>
                         </Navbar.Collapse>
+                        {context.userLogin && <div>¡Hola {context?.userInfo?.name}!</div>}
                     </Container>
                 </Navbar>
             }
