@@ -1,5 +1,5 @@
 import React from "react";
-import {Button,Spinner} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 function ButtonWithLoading(props) {
     const{ configuration, label, loading}= props
