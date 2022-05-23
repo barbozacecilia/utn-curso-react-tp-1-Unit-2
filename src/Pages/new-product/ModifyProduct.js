@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {getDetailsNewProduct, updateNewProduct} from "../../Service/productsServicesFirebase";
 import {useForm} from "react-hook-form";
-import Title from "../../Components/Title/Title";
 import {Form} from "react-bootstrap";
 import Input from "../../Components/input/Input";
 import PrimaryButton from "../../Components/Primary-button/PrimaryButton";
@@ -51,8 +50,8 @@ function ModifyProduct() {
 
     return (
         <>
-            <Loading cargando={loading} type={{variant: "success", animation: "grow"}}> <Title>Agregar un nuevo
-                producto</Title>
+            <Loading cargando={loading} type={{variant: "success", animation: "grow"}}>
+                <h1>Modificar un producto</h1>
                 <Form onSubmit={handleSubmit(onSubmitModifyP)}>
                     <Input label={"Nombre"} type={"Text"} placeholder={"Escribe aquí el nombre del producto"}
                            register={{...register("name", {required: true})}}/>
@@ -67,7 +66,7 @@ function ModifyProduct() {
                     {errors.price && <span>El campo de precio es obligatorio</span>}
                     <PrimaryButton type={"submit"} label={"Modificar producto"}/>
                 </Form>
-                <PrimaryButton type={"submit"} onClick={handleDelete} label={"Eliminar producto"}/>
+                <PrimaryButton type={"submit"} onClick={handleDelete} label={"Eliminar productos"}/>
             </Loading>
         </>
     )
