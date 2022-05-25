@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import './MenuStyles.css'
 import {Container, Nav, Navbar} from "react-bootstrap";
+import './MenuStyles.css';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import AuthContext from "../../Context/AuthContext";
 
@@ -31,6 +31,7 @@ function Menu() {
                                         <NavDropdown className="navItem" title="Productos" id="nav-dropdown">
                                             <NavDropdown.Item as={Link} to="/products/add">Agregar</NavDropdown.Item>
                                             <NavDropdown.Item as={Link} to="/products/new">Nuevos</NavDropdown.Item>
+                                            <NavDropdown.Item as={Link} to="/products/image">Imagen</NavDropdown.Item>
                                         </NavDropdown>
                                         <Nav.Link onClick={context.logoutUser} className="navItem">Salir</Nav.Link>
                                     </>

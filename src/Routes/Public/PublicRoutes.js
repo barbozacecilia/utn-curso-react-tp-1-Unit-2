@@ -12,6 +12,7 @@ import NewProduct from "../../Pages/new-product/NewProduct";
 import DetailsNewProduct from "../../Pages/new-product/DetailsNewProduct";
 import ModifyProduct from "../../Pages/new-product/ModifyProduct";
 import AuthContext from "../../Context/AuthContext";
+import ImageUpload from "../../Components/imageUpload/ImageUpload";
 
 function PublicRoutes() {
     return (
@@ -26,6 +27,7 @@ function PublicRoutes() {
                     {context.userLogin &&
                         <>
                             <Route path='/products/add' element={<AddProduct/>}/>
+                            <Route path='/products/image' element={<ImageUpload/>}/>
                             <Route path='/products/new' element={<NewProduct/>}/>
                             <Route path='/products/modify/:id' element={<ModifyProduct/>}/>
                             <Route path='/products/:id' element={<DetailsNewProduct/>}/>

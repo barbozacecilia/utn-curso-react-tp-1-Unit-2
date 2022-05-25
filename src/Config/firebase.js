@@ -1,6 +1,9 @@
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import "firebase/compat/storage";
+import { getStorage } from "firebase/storage";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,7 +17,16 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.auth = firebase.auth()
-firebase.db = firebase.firestore()
+// Get a reference to use auth
+firebase.auth = firebase.auth();
+// Get a reference to save information
+firebase.db = firebase.firestore();
+// Get a reference to the storage service
+firebase.storage = firebase.storage();
+firebase.getStorage = getStorage();
+
 
 export default firebase;
+
+
+
