@@ -1,9 +1,7 @@
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import "firebase/compat/storage";
-import { getStorage } from "firebase/storage";
-
+import { getStorage, ref,uploadBytes  } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,9 +20,10 @@ firebase.auth = firebase.auth();
 // Get a reference to save information
 firebase.db = firebase.firestore();
 // Get a reference to the storage service
-firebase.storage = firebase.storage();
-firebase.getStorage = getStorage();
-
+firebase.storage = getStorage();
+firebase.storageRef = ref;
+//Agrega  archivo
+firebase.uploadBytes = uploadBytes;
 
 export default firebase;
 

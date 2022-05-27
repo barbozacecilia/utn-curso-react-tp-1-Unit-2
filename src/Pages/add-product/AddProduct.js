@@ -1,33 +1,58 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Form} from "react-bootstrap";
 import Title from "../../Components/Title/Title";
 import Input from "../../Components/input/Input";
 import PrimaryButton from "../../Components/Primary-button/PrimaryButton";
 import firebase from "../../Config/firebase";
 import {useForm} from "react-hook-form";
+import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import dayjs from "dayjs";
 
 
 function AddProduct() {
-    const [fileUrl, setFileUrl] = useState(null)
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    //nst [ref, setRef] = useState(null)
+    const {register, handleSubmit, watch, formState: {errors}} = useForm();
+    const [image, setImage] = useState("")
+
     const onSubmitAddProducto = async (data) => {
         console.log("Form", data)
         try {
-            await firebase.storage.ref(`product-images/${data.imagen[0].name}`).put(data.imagen[0].name)//ref to storage
-            const url = await firebase.storage().ref().child(data.imagen[0].name).getDownloadURL()//url imagen
+            const timestamp = dayjs().unix().toString();
+            const storage = getStorage();
+            const storageRef = ref(storage, `product-images/${timestamp}_${data.imagen[0].name}`);
+            //await firebase.storage.ref(firebase.storage, `product-images/${data.imagen[0].name}`).firebase.uploadBytes(data.imagen[0].name)//ref to storage*/}
+            const refImg = await uploadBytes(storageRef, data.imagen[0])
+            const imageUrl = await getDownloadURL(storageRef)//ref url imagen
+            console.log(imageUrl)
+            //tRef(imageUrl)
             const document = await firebase.firestore().collection("products")
                 .add({
                     name: data.name,
                     description: data.description,
                     price: data.price,
-                    imagen: data.url
+                    imagen: imageUrl
                 })
             console.log(document)
-            setFileUrl(url)
-
+            console.log(refImg)
         } catch (e) {
             console.log(e)
         }
+    }
+
+
+    useEffect(() => {
+        const subscription = watch((value,{type, name}) => {
+            if(name === "imagen"){
+                console.log(value);
+                setImage(URL.createObjectURL(value.imagen[0]))
+            }
+        });
+        return () => subscription.unsubscribe();
+    }, [watch]);
+
+    const renderPreview = (e) => {
+        setImage(URL.createObjectURL(e.target.files[0]))
+        console.log('preview :', image)
     }
 
     return (
@@ -50,8 +75,8 @@ function AddProduct() {
                        placeholder={"Escribe aquí el precio del producto"}
                        register={{...register("price", {required: true})}}/>
                 {errors.price && <span>El campo de precio es obligatorio</span>}
-                <Input  label="Imagen del producto" type="file" register={{...register(("imagen"), {required: true})}}/>
-                <div>{fileUrl}</div>
+                <input type="file" onChange={renderPreview} {...register("imagen")}/>
+                <img src={image} alt={'preview'}/>
                 <PrimaryButton type={"submit"} label={"Agregar producto"}/>
             </Form>
         </>

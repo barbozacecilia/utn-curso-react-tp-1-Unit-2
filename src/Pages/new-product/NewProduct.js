@@ -41,7 +41,7 @@ function NewProduct() {
                                 <NewProductCard
                                     title={product.data().name}
                                     description={product.data().description}
-                                    imagen={product.data().url}
+                                    imagen={product.data().ref}
                                     price={product.data().price}
                                     id={product.id}
                                     key={product.id}
