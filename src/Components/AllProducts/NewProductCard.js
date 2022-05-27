@@ -6,7 +6,7 @@ import AuthContext from "../../Context/AuthContext";
 
 function NewProductCard(props) {
 
-    const {title, price, id, description} = props;
+    const {title, price, id, description, imagen} = props;
 
 
     return (
@@ -15,6 +15,7 @@ function NewProductCard(props) {
                 <Col>
                     <Card className="cardContainer">
                         <div className="imgContainer">
+                            <img src={imagen || "http://via.placeholder.com/100" } alt={"firebase-img"}/>
                         </div>
                         <Card.Body className="infoCardContainer">
                             <Card.Title>{title}</Card.Title>

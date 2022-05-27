@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 import firebase from "../../Config/firebase";
 
-//import {render} from "react-dom";
-
-
 function FileUpload() {
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(null)
@@ -47,8 +44,6 @@ function FileUpload() {
         </>
     )
 }
-
-//render(<FileUpload/>)
 
 
 export default FileUpload;

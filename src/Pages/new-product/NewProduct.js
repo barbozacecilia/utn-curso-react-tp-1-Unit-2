@@ -8,6 +8,7 @@ function NewProduct() {
     const [newProducts, setNewProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState('')
+
     useEffect(() => {
             const products = async () => {
                 try {
@@ -24,6 +25,7 @@ function NewProduct() {
             products()
         },
         [search])
+
     const handleSearch = (event) => {
         const value= event.target.value
         setSearch(value)
@@ -39,6 +41,7 @@ function NewProduct() {
                                 <NewProductCard
                                     title={product.data().name}
                                     description={product.data().description}
+                                    imagen={product.data().url}
                                     price={product.data().price}
                                     id={product.id}
                                     key={product.id}
