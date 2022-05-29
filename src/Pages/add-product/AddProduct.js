@@ -7,12 +7,14 @@ import firebase from "../../Config/firebase";
 import {useForm} from "react-hook-form";
 import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
 import dayjs from "dayjs";
+import AlertCustom from "../../Components/Alert/AlertCustom";
 
 
 function AddProduct() {
     //nst [ref, setRef] = useState(null)
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [image, setImage] = useState("")
+    const [alert,setAlert]=useState({variant:'', text:''})
 
     const onSubmitAddProducto = async (data) => {
         console.log("Form", data)
@@ -30,12 +32,14 @@ function AddProduct() {
                     name: data.name,
                     description: data.description,
                     price: data.price,
-                    imagen: imageUrl
+                    imagen: imageUrl,
                 })
             console.log(document)
             console.log(refImg)
+            setAlert({variant: 'secondary', text: 'Producto agregado'})
         } catch (e) {
             console.log(e)
+            setAlert({variant: 'danger', text: 'Ha ocurrido algo inesperado'})
         }
     }
 
@@ -78,6 +82,7 @@ function AddProduct() {
                 <input type="file" onChange={renderPreview} {...register("imagen")}/>
                 <img src={image} alt={'preview'}/>
                 <PrimaryButton type={"submit"} label={"Agregar producto"}/>
+                <AlertCustom {...alert}/>
             </Form>
         </>
     )

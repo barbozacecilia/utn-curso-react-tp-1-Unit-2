@@ -35,7 +35,8 @@ function DetailsNewProduct() {
             <div>
                 <p>Detalle del producto</p>
                 <p>{product.name}</p>
-                <p>Código de producto: {product.id}</p>
+                <img src={(product.imagen)} />
+                <p>Código de producto: {id}</p>
                 <p>Descripción del producto: {product.description}</p>
                 <p>Precio: {product.price}</p>
                 <div>

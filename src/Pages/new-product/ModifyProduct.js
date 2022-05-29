@@ -7,9 +7,11 @@ import PrimaryButton from "../../Components/Primary-button/PrimaryButton";
 import {useParams} from "react-router-dom";
 import firebase from "../../Config/firebase";
 import Loading from "../../Components/Loading/Loading";
+import AlertCustom from "../../Components/Alert/AlertCustom";
 
 function ModifyProduct() {
     const [loading, setLoading] = useState(true)
+    const[alert, setAlert]=useState({variant:'', text:''})
     const {register, handleSubmit, setValue, formState: {errors}} = useForm();
     const {id} = useParams()
 
@@ -36,9 +38,11 @@ function ModifyProduct() {
         console.log("Form", data)
         try {
             const document = await updateNewProduct(id, data)
+            setAlert({variant:'secondary', text: 'El producto ha sido modificado'})
             console.log(document)
         } catch (e) {
             console.log(e)
+            setAlert({variant: 'warning', text: 'Las cosas no siempre salen como las planeamos'})
         }
 
     }
@@ -46,6 +50,7 @@ function ModifyProduct() {
         const document = await firebase.db.doc("products/" + id)
             .delete()
         console.log(document)
+        setAlert({variant:'danger', text: 'El producto ha sido eliminado'})
     }
 
     return (
@@ -67,6 +72,7 @@ function ModifyProduct() {
                     <PrimaryButton type={"submit"} label={"Modificar producto"}/>
                 </Form>
                 <PrimaryButton type={"submit"} onClick={handleDelete} label={"Eliminar productos"}/>
+                <AlertCustom {...alert}/>
             </Loading>
         </>
     )
