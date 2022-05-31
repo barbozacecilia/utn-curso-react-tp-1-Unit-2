@@ -24,6 +24,7 @@ function ModifyProduct() {
                     setValue("name", response.data().name)
                     setValue("price", response.data().price)
                     setValue("description", response.data().description)
+                    setValue("imagen", response.data().imagen)
                     setLoading(false)
                 } catch (e) {
                     console.log(e)
@@ -42,7 +43,7 @@ function ModifyProduct() {
             console.log(document)
         } catch (e) {
             console.log(e)
-            setAlert({variant: 'warning', text: 'Las cosas no siempre salen como las planeamos'})
+            setAlert({variant: 'warning', text: 'Hubo un error. Las cosas no siempre salen como las planeamos'})
         }
 
     }
@@ -69,6 +70,7 @@ function ModifyProduct() {
                            placeholder={"Escribe aquí el precio del producto"}
                            register={{...register("price", {required: true})}}/>
                     {errors.price && <span>El campo de precio es obligatorio</span>}
+                    <input type="file" {...register("imagen")}/>
                     <PrimaryButton type={"submit"} label={"Modificar producto"}/>
                 </Form>
                 <PrimaryButton type={"submit"} onClick={handleDelete} label={"Eliminar productos"}/>

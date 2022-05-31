@@ -3,6 +3,8 @@ import {useParams} from "react-router-dom";
 import {getDetailsNewProduct} from "../../Service/productsServicesFirebase";
 import Loading from "../../Components/Loading/Loading";
 import SecondaryButton from "../../Components/Secondary-button/SecondaryButton";
+import Image from 'react-bootstrap/Image';
+import './DetailsNewProductStyles.css';
 
 function DetailsNewProduct() {
     const {id} = useParams()
@@ -35,7 +37,7 @@ function DetailsNewProduct() {
             <div>
                 <p>Detalle del producto</p>
                 <p>{product.name}</p>
-                <img src={(product.imagen)} />
+                <Image className={"detailsNewProductImage"} fluid={true} src={(product.imagen)} />
                 <p>Código de producto: {id}</p>
                 <p>Descripción del producto: {product.description}</p>
                 <p>Precio: {product.price}</p>
