@@ -18,3 +18,4 @@ export async function getDetailsNewProduct(id) {
 export async function updateNewProduct(id,data) {
     return await firebase.firestore().doc('products/' + id).set(data)
 }
+

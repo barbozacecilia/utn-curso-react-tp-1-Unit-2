@@ -11,7 +11,6 @@ import AlertCustom from "../../Components/Alert/AlertCustom";
 
 
 function AddProduct() {
-    //nst [ref, setRef] = useState(null)
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const [image, setImage] = useState("")
     const [alert,setAlert]=useState({variant:'', text:''})
@@ -21,12 +20,11 @@ function AddProduct() {
         try {
             const timestamp = dayjs().unix().toString();
             const storage = getStorage();
-            const storageRef = ref(storage, `product-images/${timestamp}_${data.imagen[0].name}`);
-            //await firebase.storage.ref(firebase.storage, `product-images/${data.imagen[0].name}`).firebase.uploadBytes(data.imagen[0].name)//ref to storage*/}
-            const refImg = await uploadBytes(storageRef, data.imagen[0])
-            const imageUrl = await getDownloadURL(storageRef)//ref url imagen
+            const storageRef = ref(storage, `product-images/${timestamp}_${data.imagen[0].name}`);//ref to image
+            const refImg = await uploadBytes(storageRef, data.imagen[0])//ref to storage
+            const imageUrl = await getDownloadURL(storageRef)// Get the download URL
             console.log(imageUrl)
-            //tRef(imageUrl)
+
             const document = await firebase.firestore().collection("products")
                 .add({
                     name: data.name,

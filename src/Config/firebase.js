@@ -14,13 +14,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+ firebase.initializeApp(firebaseConfig);
 // Get a reference to use auth
 firebase.auth = firebase.auth();
 // Get a reference to save information
 firebase.db = firebase.firestore();
 // Get a reference to the storage service
-firebase.storage = getStorage();
+export const storage = getStorage();
 firebase.storageRef = ref;
 //Agrega  archivo
 firebase.uploadBytes = uploadBytes;

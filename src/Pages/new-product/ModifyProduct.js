@@ -8,6 +8,8 @@ import {useParams} from "react-router-dom";
 import firebase from "../../Config/firebase";
 import Loading from "../../Components/Loading/Loading";
 import AlertCustom from "../../Components/Alert/AlertCustom";
+import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import dayjs from "dayjs";
 
 function ModifyProduct() {
     const [loading, setLoading] = useState(true)
@@ -15,17 +17,26 @@ function ModifyProduct() {
     const {register, handleSubmit, setValue, formState: {errors}} = useForm();
     const {id} = useParams()
 
+
     useEffect(
         () => {
-            const products = async () => {
+            const products = async (data) => {
                 try {
+                    const storage = getStorage();
+                    const timestamp = dayjs().unix().toString();
+                    const storageRef = ref(storage, `product-images/${timestamp}_${data.imagen[0].name}`);//ref to image
+                    const refImg = await uploadBytes(storageRef, data.imagen[0])//ref to storage
+                    const imageUrl = await getDownloadURL(storageRef)// Get the download URL
+                    console.log(imageUrl)
+
                     const response = await getDetailsNewProduct(id)
                     console.log('response', response)
                     setValue("name", response.data().name)
                     setValue("price", response.data().price)
                     setValue("description", response.data().description)
-                    setValue("imagen", response.data().imagen)
+                    setValue("imagen", imageUrl)
                     setLoading(false)
+                    console.log(refImg)
                 } catch (e) {
                     console.log(e)
                 }
